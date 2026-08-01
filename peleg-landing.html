@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>פלג בידרמן — אימון גופני והרגלים</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Miriam+Libre:wght@400;700&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --bg: #17140f;
+    --bg-panel: #1f1a13;
+    --bg-panel-alt: #241d15;
+    --ink: #ede4d6;
+    --ink-dim: #a89c8b;
+    --accent: #cf6a2c;
+    --accent-text: #e2934f;
+    --accent-deep: #7a3a18;
+    --line: rgba(237, 228, 214, 0.14);
+
+    --font-display: 'Miriam Libre', 'Frank Ruhl Libre', serif;
+    --font-body: 'Assistant', 'Arial Hebrew', sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background-color: var(--bg);
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(237, 228, 214, 0.025) 0px,
+      rgba(237, 228, 214, 0.025) 1px,
+      transparent 1px,
+      transparent 64px
+    );
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  p { margin: 0; }
+
+  a { color: inherit; }
+
+  .eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 0.6em;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: var(--accent-text);
+    margin: 0 0 1.2em;
+  }
+
+  .eyebrow::before {
+    content: "";
+    display: inline-block;
+    width: 1.6em;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  section, header.hero, footer {
+    position: relative;
+    padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 6vw, 5rem);
+  }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+  }
+
+  /* ---------- HERO ---------- */
+
+  header.hero {
+    min-height: 92vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-bg-word {
+    position: absolute;
+    inset-inline-end: -4vw;
+    top: 6%;
+    font-family: var(--font-display);
+    font-size: clamp(9rem, 32vw, 26rem);
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(207, 106, 44, 0.16);
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+    transform: rotate(-4deg);
+  }
+
+  .hero-inner { position: relative; z-index: 1; max-width: 880px; }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 6.4vw, 5rem);
+    line-height: 1.08;
+    margin-bottom: 0.9em;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent-text);
+  }
+
+  .hero-rule {
+    width: 88px;
+    height: 3px;
+    background: var(--accent);
+    margin: 0 0 1.6em;
+  }
+
+  .hero p.lede {
+    font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+    color: var(--ink-dim);
+    max-width: 54ch;
+    margin-bottom: 2.4em;
+  }
+
+  .cta-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.2em;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6em;
+    padding: 0.95em 1.8em;
+    font-family: var(--font-body);
+    font-size: 1.02rem;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 3px;
+    border: 1.5px solid transparent;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease, transform 0.15s ease;
+  }
+
+  .btn svg { width: 1.15em; height: 1.15em; flex-shrink: 0; }
+
+  .btn-fill {
+    background: var(--accent);
+    color: #18130d;
+  }
+  .btn-fill:hover { background: var(--accent-text); transform: translateY(-1px); }
+
+  .btn-outline {
+    background: transparent;
+    border-color: var(--accent-deep);
+    color: var(--accent-text);
+  }
+  .btn-outline:hover { border-color: var(--accent-text); background: rgba(207,106,44,0.08); transform: translateY(-1px); }
+
+  .btn:focus-visible {
+    outline: 2px solid var(--accent-text);
+    outline-offset: 3px;
+  }
+
+  .cta-note {
+    font-size: 0.88rem;
+    color: var(--ink-dim);
+    margin-top: 1.1em;
+  }
+
+  /* ---------- ABOUT ---------- */
+
+  .about .wrap {
+    display: grid;
+    grid-template-columns: 0.85fr 1.4fr;
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: center;
+  }
+
+  .monogram-box {
+    border: 1px solid var(--line);
+    background: var(--bg-panel);
+    padding: clamp(1.5rem, 4vw, 3rem);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1 / 1;
+  }
+
+  .monogram {
+    font-family: var(--font-display);
+    font-size: clamp(4rem, 9vw, 7rem);
+    font-weight: 700;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  .about-copy h2 {
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    margin-bottom: 0.8em;
+  }
+
+  .about-copy p {
+    font-size: 1.08rem;
+    color: var(--ink-dim);
+    max-width: 62ch;
+  }
+
+  .about-copy p + p { margin-top: 1.1em; }
+
+  .about-copy strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* ---------- SERVICES ---------- */
+
+  .services { background: var(--bg-panel); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+  .services h2.section-title {
+    font-size: clamp(1.8rem, 3.2vw, 2.5rem);
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+    max-width: 20ch;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 2px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .service-panel {
+    background: var(--bg-panel);
+    padding: clamp(2rem, 4vw, 3rem);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .service-panel.local { background: var(--bg-panel-alt); }
+
+  .service-icon {
+    width: 2.6rem;
+    height: 2.6rem;
+    color: var(--accent-text);
+    margin-bottom: 1.4em;
+  }
+
+  .service-panel h3 {
+    font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+    margin-bottom: 0.3em;
+  }
+
+  .service-meta {
+    font-size: 0.85rem;
+    color: var(--ink-dim);
+    letter-spacing: 0.03em;
+    margin-bottom: 1.2em;
+  }
+
+  .service-panel p.body-text {
+    color: var(--ink-dim);
+    font-size: 1.02rem;
+    max-width: 42ch;
+  }
+
+  /* ---------- FINAL CTA ---------- */
+
+  .final-cta { text-align: start; }
+
+  .final-cta h2 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    margin-bottom: 0.5em;
+  }
+
+  .final-cta p.lede {
+    color: var(--ink-dim);
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    max-width: 56ch;
+    margin-bottom: 2.2em;
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  footer {
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+    border-top: 1px solid var(--line);
+    font-size: 0.9rem;
+    color: var(--ink-dim);
+  }
+
+  /* ---------- REVEAL ---------- */
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.in-view {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+
+  @media (max-width: 780px) {
+    .about .wrap {
+      grid-template-columns: 1fr;
+    }
+    .monogram-box { max-width: 220px; margin: 0 auto; }
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero-bg-word { opacity: 0.6; top: 2%; }
+    .cta-row { flex-direction: column; align-items: stretch; }
+    .btn { justify-content: center; }
+  }
+
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <span class="hero-bg-word" aria-hidden="true">מסה</span>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">ראשון לציון · ליווי אונליין בכל הארץ</p>
+      <h1>הגוף משתנה<br>כש<em>ההרגלים</em> משתנים</h1>
+      <div class="hero-rule"></div>
+      <p class="lede">
+        אני פלג בידרמן, מאמן כושר שמתמחה בבניית מסת שריר ובשינוי גוף אמיתי —
+        לא רק עם תוכנית אימונים, אלא עם עבודה של ממש על ההרגלים שעומדים בדרך.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-fill" href="https://t.me/peleg_biderman" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4 3 11.2l6 2.2M21 4 15.5 20l-6.5-6.6M21 4 9 13.6"/></svg>
+          לדבר בטלגרם
+        </a>
+      </div>
+      <p class="cta-note">בלי טפסים, בלי בוט — אני עונה בעצמי.</p>
+    </div>
+  </header>
+
+  <section class="about reveal">
+    <div class="wrap">
+      <div class="monogram-box">
+        <span class="monogram">פ.ב</span>
+      </div>
+      <div class="about-copy">
+        <p class="eyebrow">מי מאמן אותך</p>
+        <h2>לא עוד תוכנית שנשארת על הנייר</h2>
+        <p>
+          קוראים לי פלג בידרמן. שנים אימנתי אנשים שרצו <strong>״לעלות במסה״</strong> —
+          ולמדתי שהבעיה כמעט אף פעם לא הייתה התוכנית. היא הייתה מה שקורה מחוץ לחדר כושר:
+          שעות שינה שלא מסתדרות, האוכל האוטומטי בשעה אחת עשרה בלילה,
+          הוויתור אחרי שבוע עמוס בעבודה.
+        </p>
+        <p>
+          אני בונה איתך תוכנית אימונים רצינית, ובמקביל עובד איתך על ההרגלים
+          שבלעדיהם שום תוכנית לא מחזיקה מעמד.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="services reveal">
+    <div class="wrap">
+      <p class="eyebrow">איך עובדים ביחד</p>
+      <h2 class="section-title">שתי דרכים להתחיל</h2>
+      <div class="services-grid">
+        <div class="service-panel local">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="9" width="3" height="6"></rect>
+            <rect x="19" y="9" width="3" height="6"></rect>
+            <rect x="6" y="7" width="2.2" height="10"></rect>
+            <rect x="15.8" y="7" width="2.2" height="10"></rect>
+            <line x1="8.2" y1="12" x2="15.8" y2="12"></line>
+          </svg>
+          <h3>אימון אישי — ראשון לציון</h3>
+          <p class="service-meta">פנים אל פנים, בחדר הכושר</p>
+          <p class="body-text">
+            נפגשים אחד על אחד בחדר הכושר בראשון לציון. בונים תוכנית אימונים
+            שמתאימה לגוף, לזמן ולשגרה שלך, ואני איתך צמוד על כל חזרה ועל כל שבוע.
+          </p>
+        </div>
+        <div class="service-panel">
+          <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="2" width="12" height="20" rx="1.5"></rect>
+            <line x1="10" y1="18.5" x2="14" y2="18.5"></line>
+          </svg>
+          <h3>ליווי אונליין — בכל הארץ</h3>
+          <p class="service-meta">מכל מקום, דרך הנייד</p>
+          <p class="body-text">
+            תוכנית אימונים אישית שנבנית מרחוק, מעקב שוטף בוואטסאפ,
+            ובקרה על ההרגלים גם כשאני לא איתך באותו חדר.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta reveal">
+    <div class="wrap">
+      <p class="eyebrow">השלב הבא</p>
+      <h2>הצעד הראשון<br>הוא הודעה אחת</h2>
+      <p class="lede">
+        בלי טפסים ארוכים ובלי התחייבות. תכתוב לי בטלגרם או בוואטסאפ,
+        ונדבר על המצב שלך ועל המטרה שלך.
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-fill" href="https://t.me/peleg_biderman" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 4 3 11.2l6 2.2M21 4 15.5 20l-6.5-6.6M21 4 9 13.6"/></svg>
+          לטלגרם
+        </a>
+        <a class="btn btn-outline" href="https://wa.me/972500000000" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20l1.4-4.1A8 8 0 1 1 8.7 19L4 20Z"/><path d="M8.5 9.2c0 3.6 3 6.6 6.6 6.6l1-2-2.6-1.2-.8 1a5 5 0 0 1-3-3l1-.8L9.5 8l-1 1.2Z"/></svg>
+          לוואטסאפ
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      פלג בידרמן — אימון גופני ועבודה על הרגלים · ראשון לציון ואונליין
+    </div>
+  </footer>
+
+  <script>
+    var els = document.querySelectorAll('.reveal');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced || !('IntersectionObserver' in window)) {
+      els.forEach(function (el) { el.classList.add('in-view'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      els.forEach(function (el) { io.observe(el); });
+    }
+  </script>
+
+</body>
+</html>
