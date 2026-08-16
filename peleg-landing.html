@@ -348,6 +348,17 @@
 
   .testimonial-card.alt { background: var(--bg-panel-alt); }
 
+  .testimonials-grid.single-testimonial {
+    grid-template-columns: minmax(0, 620px);
+    justify-content: center;
+    border: none;
+    background: none;
+  }
+
+  .testimonials-grid.single-testimonial .testimonial-card {
+    border: 1px solid var(--line);
+  }
+
   .testimonial-stars {
     display: flex;
     gap: 0.2em;
@@ -550,74 +561,24 @@
     </div>
   </section>
 
-  <!-- TODO: להחליף בהמלצות אמיתיות מלקוחות (טקסטים, שמות ותפקידים למטה הם placeholder) לפני עלייה לאוויר -->
   <section class="testimonials reveal">
     <div class="wrap">
       <p class="eyebrow">מה אומרים עליי</p>
       <h2 class="section-title">לקוחות מספרים</h2>
-      <div class="testimonials-grid">
+      <div class="testimonials-grid single-testimonial">
 
         <div class="testimonial-card">
-          <div class="testimonial-stars" aria-hidden="true">
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-          </div>
-          <span class="sr-only">דירוג 5 מתוך 5 כוכבים</span>
           <p class="testimonial-quote">
-            פלג לא רק בנה לי תוכנית אימונים — הוא עזר לי להבין למה אני נופלת
-            על האוכל בערב. שינוי אמיתי, לא עוד דיאטה שנעלמת אחרי חודש.
+            אני יגאל, בן 54, והלקוח הראשון של פלג. ביקשתי ממנו לעזור לי להיכנס
+            לכושר, ועד היום השגתי תוצאות טובות - בלי שום פציעה. מה שהכי משמח
+            אותי זה שהרצון להתאמן רק הולך וגדל מיום ליום. כהוקרת תודה על הדרך
+            המשותפת בניתי לו את האתר הזה - זו המתנה שלי בשבילו.
           </p>
           <div class="testimonial-foot">
-            <div class="testimonial-avatar" aria-hidden="true">ד.כ</div>
+            <div class="testimonial-avatar" aria-hidden="true">י</div>
             <div class="testimonial-author">
-              <strong>דנה כהן</strong>
-              <span class="testimonial-role">אימון אישי · ראשון לציון</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card alt">
-          <div class="testimonial-stars" aria-hidden="true">
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-          </div>
-          <span class="sr-only">דירוג 5 מתוך 5 כוכבים</span>
-          <p class="testimonial-quote">
-            עברתי איתו ליווי אונליין מלא מהבית, והתחושה הייתה בדיוק כמו ליווי
-            צמוד. המעקב השוטף בוואטסאפ עשה את כל ההבדל בהתמדה שלי.
-          </p>
-          <div class="testimonial-foot">
-            <div class="testimonial-avatar" aria-hidden="true">מ.ל</div>
-            <div class="testimonial-author">
-              <strong>מיכל לוי</strong>
-              <span class="testimonial-role">ליווי אונליין</span>
-            </div>
-          </div>
-        </div>
-
-        <div class="testimonial-card">
-          <div class="testimonial-stars" aria-hidden="true">
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-            <svg class="testimonial-star" viewBox="0 0 20 20" fill="currentColor"><path d="M10 1.5l2.47 5.6 6.03.56-4.58 4.03 1.36 5.95L10 14.9l-5.28 2.74 1.36-5.95L1.5 7.66l6.03-.56L10 1.5Z"/></svg>
-          </div>
-          <span class="sr-only">דירוג 5 מתוך 5 כוכבים</span>
-          <p class="testimonial-quote">
-            הגעתי אחרי כמה ניסיונות כושלים לבד. עם פלג יש מישהו שבאמת בודק
-            מה קורה בשבוע, לא רק שולח תוכנית ונעלם.
-          </p>
-          <div class="testimonial-foot">
-            <div class="testimonial-avatar" aria-hidden="true">ר.ש</div>
-            <div class="testimonial-author">
-              <strong>רועי שפירא</strong>
-              <span class="testimonial-role">ליווי אונליין</span>
+              <strong>יגאל</strong>
+              <span class="testimonial-role">בן 54 · הלקוח הראשון של פלג</span>
             </div>
           </div>
         </div>
